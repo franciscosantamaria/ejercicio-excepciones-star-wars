@@ -1,10 +1,10 @@
-version: '3'
+version: "3"
 services:
     webserver:
-        image: "docker-environment_webserver"
+        image: "php-environment:8.1"
+        environment:
+            - APACHE_RUN_USER=#1000
         ports:
             - "8888:80"
         volumes:
-            - ./:/var/www/html
-        environment:
-            XDEBUG_CONFIG: remote_host=host.docker.internal
+            - .:/var/www/html
